@@ -21,7 +21,6 @@
 <div id="ca_ro"></div>
 <br>
 <button onclick="createBroad()">Start</button>
-<button onclick="restart()">Reset</button>
 </body>
 <script>
     let arrAll = [];
@@ -29,7 +28,7 @@
         let x = 20
         let y = 20
         drawBoardGame(x, y)
-       console.log(arrAll);
+        console.log(arrAll);
     }
     function drawBoardGame(x, y) {
         let data = "<table>"
@@ -59,7 +58,7 @@
         if (element.innerHTML === "x") {
             document.getElementById(element.id).style.color = "blue"
         } else {
-            document.getElementById(element.id).style.color = "red"
+            document.getElementById(element.id).style.color = "yellow"
         }
         checkWin(parseInt(arr[0]), parseInt(arr[1]));
         console.log(arrAll)
@@ -71,27 +70,48 @@
             value = "x"
         }
     }
-    function checkWin(positionX, positionY){
-        console.log(positionX, positionY);
+    f
+    function checkWin(positionX, positionY) {
         let cntX = 0;
         let cntY = 0;
-        let contains = false;
-        for (let i = 0; i < 20; i++) {
-            if(arrAll[positionX][i] === arrAll[positionX][i+1] && (arrAll[positionX][i] === "x" || arrAll[positionX][i] === "o")){
+        let containsX = false;
+        let containsY = false;
+
+        for (let i = 0; i < 19; i++) {
+
+            if (
+                arrAll[positionX][i] === arrAll[positionX][i + 1] &&
+                (arrAll[positionX][i] === "x" || arrAll[positionX][i] === "o")
+            ) {
                 cntX++;
-                if(positionY === i || positionY === i + 1){contains = true;}
-                if(cntX === 2 && contains){alert("you win"); break;}
-            }else {
+                if (positionY === i || positionY === i + 1) {
+                    containsX = true;
+                }
+                if (cntX === 2 && containsX) {
+                    alert("You win");
+                    break;
+                }
+            } else {
                 cntX = 0;
-                contains = false;
+                containsX = false;
             }
-            if(arrAll[i][positionY] === arrAll[i+1][positionY] && (arrAll[i][positionY] === "x" || arrAll[i][positionY] === "o")){
+
+
+            if (
+                arrAll[i][positionY] === arrAll[i + 1][positionY] &&
+                (arrAll[i][positionY] === "x" || arrAll[i][positionY] === "o")
+            ) {
                 cntY++;
-                if(positionX === i || positionX === i + 1){contains = true;}
-                if(cntY === 2 && contains){alert("you win"); break;}
-            }else {
+                if (positionX === i || positionX === i + 1) {
+                    containsY = true;
+                }
+                if (cntY === 2 && containsY) {
+                    alert("You win");
+                    break;
+                }
+            } else {
                 cntY = 0;
-                contains = false;
+                containsY = false;
             }
         }
     }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Apple {
+    constructor(canNang) {
+      this.canNang = canNang
+    }
+      traVeCanNang(){
+        return console.log(this.canNang);
+
+      }
+  }
+  var quaTao = new Apple(10)
+  class Human {
+      name
+      gender
+      weight
+    constructor(name, gender, weight) {
+      this.name = name
+      this.gender = gender
+      this.weight = weight
+    }
+    talk(message){
+      console.log(message);
+    }
+    anTao(quatao){
+        if(quatao.traVeCanNang()>0){
+            this.weight += 1;
+            quatao.canNang -=1;
+        }
+    }
+    setWeight(weight){
+        this.weight = weight;
+        console.log(this.weight)
+    }
+    getName(){
+        return this.name;
+    }
+  }
+  const Adam = new Human("adam", 20, 55)
+  const Eva = new Human("eva", 18, 50)
+  Adam.talk("hello")
+  Adam.anTao(quaTao)
+  Adam.setWeight(Adam.weight)
+  Eva.talk("hello")
+  Eva.anTao(quaTao)
+  Eva.setWeight(Eva.weight)
+
+</script>
+</body>
+</html>
